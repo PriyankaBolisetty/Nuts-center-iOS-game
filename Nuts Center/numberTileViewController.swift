@@ -21,8 +21,14 @@ class numberTileViewController: UIViewController {
     var startTime = NSTimeInterval()
     var timer = NSTimer()
     let aSelector: Selector = "updateTime"
-    @IBOutlet var isRun: UIButton!
+    
     var timerIsRunning = false
+    var array = [0]
+    var pos = 0
+    var action = ""
+    
+    @IBOutlet var isRun: UIButton!
+   
     
     @IBAction func pause(sender: AnyObject) {
         if timer.valid{
@@ -36,11 +42,8 @@ class numberTileViewController: UIViewController {
         
     }
     
-    
     @IBOutlet var displayTimelabel: UILabel!
-    
-    
-    
+
     @IBOutlet var tileTable:[UILabel]!
     
     @IBOutlet var cell1: UILabel!
@@ -61,8 +64,7 @@ class numberTileViewController: UIViewController {
     @IBOutlet var cell16: UILabel!
     
     @IBOutlet var movement: UILabel!
-    var array = [0]
-    var pos = 0
+
     
     private var gestureStartPoint:CGPoint!
     func updateTime(){
@@ -108,7 +110,7 @@ class numberTileViewController: UIViewController {
         
     }
     
-    var action = ""
+
     override func touchesMoved(touches: Set<UITouch>?, withEvent event: UIEvent?) {
         let touches = event!.allTouches() as NSSet!
         let touch = touches.anyObject() as! UITouch
