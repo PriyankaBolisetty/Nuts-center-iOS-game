@@ -267,6 +267,7 @@ class numberTileViewController: UIViewController {
         cell16.layer.cornerRadius = 10
         
         initTile()
+        updateTile("up")
         
     }
     

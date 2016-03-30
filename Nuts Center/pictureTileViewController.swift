@@ -17,6 +17,7 @@ import QuartzCore
 
 class pictureTileViewController: UIViewController {
     
+    
     @IBOutlet var hitview: UIImageView!
     @IBOutlet var tileTable:[UILabel]!
     
@@ -41,6 +42,7 @@ class pictureTileViewController: UIViewController {
     @IBOutlet var movement: UILabel!
     var array = [0]
     var pos = 0
+    var action = ""
     
     private var gestureStartPoint:CGPoint!
     
@@ -53,7 +55,7 @@ class pictureTileViewController: UIViewController {
         
     }
     
-    var action = ""
+    
     override func touchesMoved(touches: Set<UITouch>?, withEvent event: UIEvent?) {
         let touches = event!.allTouches() as NSSet!
         let touch = touches.anyObject() as! UITouch
@@ -112,6 +114,7 @@ class pictureTileViewController: UIViewController {
             swap(&array[i], &array[j])
         }
         arrayToTile()
+        updateTileImage()
     }
     
     
@@ -205,8 +208,13 @@ class pictureTileViewController: UIViewController {
             let name = goImage[ (Int(tile.text!)!+15)%16]
             let hasAlpha = true
             let image = UIImage(named: name)
-            let imgSize = tile.frame.size;
-            //let imgSize = CGSize(width: 60, height: 60);
+            //var imgSize = tile.frame.size;
+            //print(self.view.frame.size.width)
+            //if(imgSize.width > 80){
+                let size = ((self.view.frame.size.width - 15 - 40) / 4 ) - (0.024 * self.view.frame.size.width)
+                let imgSize = CGSize(width: size, height: size);
+            //}
+            
             let scale: CGFloat = 0.0
             UIGraphicsBeginImageContextWithOptions(imgSize, !hasAlpha, scale)
             image!.drawInRect(CGRect(origin: CGPointZero, size: imgSize))
@@ -217,6 +225,8 @@ class pictureTileViewController: UIViewController {
             
         }
     }
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -238,11 +248,17 @@ class pictureTileViewController: UIViewController {
         cell16.layer.cornerRadius = 10
         
         // Do any additional setup after loading the view, typically from a nib.
-        
-        
-        
+        //initTile()
+        //updateTileImage()
         initTile()
         
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated);
+        
+        updateTile("up")
+        updateTile("down")
     }
     
     override func didReceiveMemoryWarning() {
