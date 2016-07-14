@@ -2,8 +2,8 @@
 //  Nuts_CenterUITests.swift
 //  Nuts CenterUITests
 //
-//  Created by lena on 3/28/16.
-//  Copyright © 2016 lena. All rights reserved.
+//  Created by Priyanka
+//  Copyright © 2016 Priyanka. All rights reserved.
 //
 
 import XCTest
