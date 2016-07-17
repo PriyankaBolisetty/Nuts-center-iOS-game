@@ -12,5 +12,5 @@ An interesting iOS game (Nuts center, people go nuts while playing it!!!) throug
 *	Able to observe changes in data using SQLite Manager, a tool of Mozilla Firefox
 *	Time is updated in database only if the user completes the game successfully, else no changes are done to database
 
-**Environment**
+**Environment: **
 Xcode 7.3, Swift, SQLite3 database, SQLite Manager 
